@@ -1,0 +1,33 @@
+.header {
+  width: 100vw;
+  font-weight: 900;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.subHeaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 400;
+}
+
+.settings{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerLogo {
+  /* Add styles for the logo container if needed */
+}
+
+.subTitle {
+  font-weight: 200;
+}
