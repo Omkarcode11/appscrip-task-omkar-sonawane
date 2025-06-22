@@ -1,26 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Sidebar from "../components/sidebar/Sidebar";
+import React, { useState, useEffect, useContext } from "react";
+import Sidebar from "../components/product/list/sidebar/Sidebar";
 import ProductList from "../components/product/list/ProductList";
-import { fetchProducts } from "../utils/api";
+import {
+  fetchCategory,
+  fetchProductByCategory,
+  fetchProducts,
+} from "../utils/api";
 import style from "./page.module.css";
 
 // Import the Product type from your types folder
 import type { Product } from "../types/product";
-import ProductCardSkeleton from "../components/skeleton/product/ProductCard";
 
 function AllProducts() {
   const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(10);
-  const limit = 9;
-  const maxPages = 10;
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const limit = 10;
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const response = await fetchProducts(page, limit);
+        let response;
+        if (selectedCategory) {
+          response = await fetchProductByCategory(selectedCategory);
+        } else {
+          response = await fetchProducts(page, limit);
+        }
 
         const fetchedProducts = Array.isArray(response.products)
           ? response.products
@@ -35,7 +44,11 @@ function AllProducts() {
     };
 
     loadProducts();
-  }, [page]);
+  }, [page, selectedCategory]);
+
+  useEffect(() => {
+    fetchCategory().then((res) => setCategories(res.categories));
+  }, []);
 
   const renderPagination = () => {
     const buttons = [];
@@ -75,11 +88,21 @@ function AllProducts() {
   };
 
   return (
-    <div className={style.container}>
-      <Sidebar isOpen={true} />
-      <div className={style.content}>
-        <ProductList products={products} />
-        {renderPagination()}
+    <div>
+      <div className={style.header}>
+        <h1>Discover our products</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
+          scelerisque. Dolor integer scelerisque nibh amet mi ut elementum
+          dolor.
+        </p>
+      </div>
+      <div className={style.container}>
+        <Sidebar categories={categories} selectCategory={setSelectedCategory} />
+        <div className={style.content}>
+          <ProductList products={products} />
+          {!selectedCategory && renderPagination()}
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,15 @@
+.header{
+  padding: 1rem;
+  text-align: center;
+}
+.header > h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 1rem 0rem;
+}
+
+
 .container {
   display: flex;
 }
