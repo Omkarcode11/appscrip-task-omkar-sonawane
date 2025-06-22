@@ -20,7 +20,7 @@ function ProductList({ products }: Props) {
       </button>
       <div className={styles.grid}>
         {!products.length ? (
-          [1,2,3,4,5].map(ele=><ProductCardSkeleton />)
+          [1,2,3,4,5].map(ele=><ProductCardSkeleton key={ele} />)
         ) : (
           products.map((product: Product) => (
             <ProductCard key={product.id} product={product} />

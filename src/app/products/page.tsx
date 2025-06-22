@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/product/list/sidebar/Sidebar";
 import ProductList from "../components/product/list/ProductList";
 import {

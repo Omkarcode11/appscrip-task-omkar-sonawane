@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import { createContext, useContext, useState } from "react";
 import { AppProvider } from "./context/AppContext";
 
 const inter = Inter({

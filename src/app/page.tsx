@@ -1,18 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
-
-  useEffect(() => {
-    router.push("/products");
-  }, []);
-
-  return (
-    <div>
-      Redirecting...
-    </div>
-  );
+  router.push("/products");
+  return <div>Redirecting...</div>;
 }
