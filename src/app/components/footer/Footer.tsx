@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import style from "./footer.module.css";
 import { routes } from "@/app/utils/site";
@@ -23,13 +23,18 @@ function Footer() {
         <div className={style.contactCurrency}>
           <div>
             <p className={style.heading}>CONTACT US</p>
-            <p>+44 221 133 5360</p>
-            <p>customercare@mettasmuse.com</p>
+            <p>+91 8956534135</p>
+            <p>omkarsonawaneomkar2@gmail.com</p>
           </div>
           <div>
             <p className={style.heading}>CURRENCY</p>
-            <p><img src="/usa.svg" alt="usd" /> • USD</p>
-            <p className={style.currencyNote}>Transactions will be completed in Euros and a currency reference is available on hover.</p>
+            <p>
+              <img src="/usa.svg" alt="usd" /> • USD
+            </p>
+            <p className={style.currencyNote}>
+              Transactions will be completed in Euros and a currency reference
+              is available on hover.
+            </p>
           </div>
         </div>
       </div>
@@ -50,7 +55,18 @@ function Footer() {
           <div>
             <p className={style.heading}>FOLLOW US</p>
             <div className={style.icons}>
-              <img src="/social.svg" alt="Instagram" />
+              <button
+                className={style.icons}
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/omkardev/",
+                    "popupWindow",
+                    "width=600,height=600,scrollbars=yes"
+                  )
+                }
+              >
+                <img src="/social.svg" alt="Instagram" />
+              </button>
             </div>
           </div>
           <div>
@@ -62,13 +78,19 @@ function Footer() {
         </div>
       </div>
 
-      <p className={style.copyright}>Copyright © 2023 mettamuse. All rights reserved.</p>
+      <p className={style.copyright}>
+        Copyright © 2023 mettamuse. All rights reserved.
+      </p>
     </div>
   );
 }
 
 function QuickLinks(arr: string[]) {
-  return arr.map((item, idx) => <p key={idx} className={style.link}>{item}</p>);
+  return arr.map((item, idx) => (
+    <p key={idx} className={style.link}>
+      {item}
+    </p>
+  ));
 }
 
 export default Footer;
