@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import style from "./header.module.css";
 import { routes } from "@/app/utils/site";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,15 +41,15 @@ export default function Header() {
 
         {/* Icons */}
         <div className={style.icons}>
-          <img src="/search.svg" alt="search" />
-          <img src="/heart.svg" alt="wishlist" />
-          <img src="/bag.svg" alt="bag" />
-          <img src="/user.svg" alt="user" className={style.desktopOnly} />
+          <Image src="/search.svg" alt="search" />
+          <Image src="/heart.svg" alt="wishlist" />
+          <Image src="/bag.svg" alt="bag" />
+          <Image src="/user.svg" alt="user" className={style.desktopOnly} />
         </div>
 
         {/* Logo */}
         <div className={style.logo}>
-          <img src="/logo.svg" alt="Logo" />
+          <Image src="/logo.svg" alt="Logo" />
           <h1>LOGO</h1>
         </div>
       </div>

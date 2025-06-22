@@ -2,6 +2,7 @@
 import React from "react";
 import style from "./footer.module.css";
 import { routes } from "@/app/utils/site";
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -29,7 +30,7 @@ function Footer() {
           <div>
             <p className={style.heading}>CURRENCY</p>
             <p>
-              <img src="/usa.svg" alt="usd" /> • USD
+              <Image height={20} src="/usa.svg" alt="usd" /> • USD
             </p>
             <p className={style.currencyNote}>
               Transactions will be completed in Euros and a currency reference
@@ -65,14 +66,14 @@ function Footer() {
                   )
                 }
               >
-                <img src="/social.svg" alt="Instagram" />
+                <Image src="/social.svg" alt="Instagram" />
               </button>
             </div>
           </div>
           <div>
             <p className={style.heading}>mettā muse ACCEPTS</p>
             <div className={style.paymentIcons}>
-              <img src="/payment.svg" alt="Payment methods" />
+              <Image src="/payment.svg" alt="Payment methods" />
             </div>
           </div>
         </div>
