@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { Product } from "@/app/types/product";

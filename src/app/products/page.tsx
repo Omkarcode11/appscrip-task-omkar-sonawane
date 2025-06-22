@@ -1,12 +1,17 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/sidebar/Sidebar";
 import ProductList from "../components/product/list/ProductList";
 import { fetchProducts } from "../utils/api";
 import style from "./page.module.css";
 
+// Import the Product type from your types folder
+import type { Product } from "../types/product";
+import ProductCardSkeleton from "../components/skeleton/product/ProductCard";
+
 function AllProducts() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(10);
   const limit = 9;
@@ -14,10 +19,19 @@ function AllProducts() {
 
   useEffect(() => {
     const loadProducts = async () => {
-      const response = await fetchProducts(page, limit);
-      setProducts(response.products);
-      const actualTotalPages = Math.ceil(response.total / limit);
-      setTotalPages(Math.min(actualTotalPages, maxPages)); 
+      try {
+        const response = await fetchProducts(page, limit);
+
+        const fetchedProducts = Array.isArray(response.products)
+          ? response.products
+          : [];
+
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setProducts([]);
+        setTotalPages(1);
+      }
     };
 
     loadProducts();
@@ -30,7 +44,9 @@ function AllProducts() {
         <button
           key={i}
           onClick={() => setPage(i)}
-          className={`${style.pageButton} ${page === i ? style.activePage : ""}`}
+          className={`${style.pageButton} ${
+            page === i ? style.activePage : ""
+          }`}
         >
           {i}
         </button>
@@ -40,7 +56,7 @@ function AllProducts() {
     return (
       <div className={style.pagination}>
         <button
-          onClick={() => setPage((p) => Math.max(p - 1, 1))}
+          onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
           disabled={page === 1}
           className={style.pageNav}
         >
@@ -48,7 +64,7 @@ function AllProducts() {
         </button>
         {buttons}
         <button
-          onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+          onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
           disabled={page === totalPages}
           className={style.pageNav}
         >
