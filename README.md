@@ -67,10 +67,15 @@ Then open your browser and go to: `http://localhost:3000`
 ---
 
 ## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/e2fbe1c3-742a-460c-8229-72f6ae40cc2d)
+![image](https://github.com/user-attachments/assets/7f6a6c44-cc3f-4b10-b59c-445c39e8e5cc)
 
 > Add some screenshots or screen recordings here if available (desktop + mobile views)
 
 ---
+
+# App Structure
+https://app.devin.ai/wiki/Omkarcode11/appscrip-task-omkar-sonawane
 
 ## 🧠 Learning Points
 
