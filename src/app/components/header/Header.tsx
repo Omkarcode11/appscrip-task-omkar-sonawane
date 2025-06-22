@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import style from "./header.module.css";
-import { routes } from "@/app/utils/site";
 import Image from "next/image";
 
 export default function Header() {
