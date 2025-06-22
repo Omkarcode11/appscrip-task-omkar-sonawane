@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import { createContext, useContext, useState } from "react";
+import { AppProvider } from "./context/AppContext";
 
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,10 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body {...inter} >
-        <Header/>
-        {children}
-        <Footer/>
+      <body {...inter}>
+        <AppProvider>
+          <Header />
+          {children}
+          <Footer />
+        </AppProvider>
       </body>
     </html>
   );
