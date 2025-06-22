@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pageButton,
+.pageNav {
+  padding: 6px 12px;
+  font-size: 14px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pageButton:hover,
+.pageNav:hover {
+  background: #e0e0e0;
+}
+
+.pageButton:disabled,
+.pageNav:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.activePage {
+  background: black;
+  color: white;
+  font-weight: bold;
+}
