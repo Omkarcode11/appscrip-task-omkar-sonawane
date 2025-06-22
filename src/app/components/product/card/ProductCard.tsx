@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react";
-import styles from "./ProductCard.module.css";
+import styles from "./productCard.module.css";
 import { Product } from "@/app/types/product";
 import Link from "next/link";
 import Image from "next/image";
