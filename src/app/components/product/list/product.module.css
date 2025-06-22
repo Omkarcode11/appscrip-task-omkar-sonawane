@@ -4,3 +4,21 @@
   gap: 1rem;
   padding: 1rem;
 }
+
+.filterToggleBtn {
+  width: 90%;
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .filterToggleBtn {
+    display: none;
+  }
+}

@@ -32,7 +32,7 @@ function ProductCard({ product }: Props) {
       <div className={styles.details}>
         <h3 className={styles.title}>{product.title}</h3>
         <p className={styles.loginText}>
-          <Link href="/login">Sign in</Link> or Create an account to see pricing
+          <Link href="/products">Sign in</Link> or Create an account to see pricing
         </p>
         <button
           onClick={() => setFill((prev) => !prev)}
